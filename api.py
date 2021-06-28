@@ -2,10 +2,10 @@ import argparse
 import requests
 
 #initialise the parser
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser( description = "Generate the quote")
 
-# Initialize parser
-parser.add_argument("-o", "--Output", help = "Show Output")
+# Add the optional parameter  
+parser.add_argument("-o", "--Output", help = "Quote via API")
 
 args = parser.parse_args()
 
@@ -25,3 +25,5 @@ response = requests.get('https://quotes.rest/qod?category='+ args.Output)
 
 # storing responses in JSON format
 quotes = response.json()
+
+print(quotes)
